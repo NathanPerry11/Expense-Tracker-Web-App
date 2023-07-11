@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  height: 100vh;
+}
+.MoneyPic{
+  position: relative;
+  margin-top: 30vmin;
+  margin-left: auto;
+  height: 20vmin;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+  .MoneyPic{
+    animation: moneymoves infinite 2s alternate;
+  }
+}
+#Start{
+  position: relative;
+  margin-left: auto;
+  margin-top: 20vmin;
+  display: inline-block;
+  
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: #61dafb;
+}
+@keyframes moneymoves {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}

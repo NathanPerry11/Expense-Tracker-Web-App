@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script type="text/javascript" src="Hub.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="css/Hub.css">
+  <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class = "Section" id = "Toggles">
+    <h1 id="toggleHead">Select Sections</h1>
+  </div>
+  <script>
+    makeToggles();
+    setTypes();
+    var checkboxes = document.querySelectorAll("input[type=checkbox");
+    checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      setTypes();
+      GetData();
+  })
+});
+
+  </script>
+  <div class="App">
+    <form action="/" method="post" id="main">
+      <input type="checkbox" id = "tagexp" name = "tag" value = "expense" class = "tags" checked>
+      <div id="ValueWindow" class="Section">
+        <h1 class="Section-Head">Submit An Expense</h1>
+        <br>
+        <input type="text" name="val" class = "ValueWindowComponent" placeholder="Expense Value" id="Form">
+        <br>
+        <label for="expDate" class = "ValueWindowComponent" id="expDateLabel">Date of Expense (Leave Blank if Today)</label>
+        <br>
+        <input type="date" name = "expDate" class = "ValueWindowComponent" id = "expDate">
+        <select class="form-select" form="main" id="ExpenseType" name="ExpenseType">
+          <option selected="selected">Select Expense Type</option>
+          <option value="Rent/Bills">Rent/Bills</option>
+          <option value="Fun and Drinks">Drinks/Fun</option>
+          <option value="Food">Food and Groceries</option>
+          <option value="Clothes">Clothes</option>
+          <option value="Silly Trinkets">Silly Trinkets</option>
+          <option value="Going Places">Going Places</option>
+          <option value="Health">Health and Fitness</option>
+          <option value="Personal Care">Personal Care</option>
+          <option value="School">School</option>
+          <option value="Other">Other</option>
+
+        </select>
+        <br>
+        <button type="submit" name="submit" class="btn btn-primary" id="Enter" onclick="Validity()">Submit</button>
+      </div>
+      <div id="dates" class="Section">
+        <h1 class="Section-Head">Date Range</h1>
+        <img src="./img/clock.png" id="clock">
+        <br>
+        <label for="firstDate" id="firstLabel">From</label>
+        <label for="secondDate" id="secondLabel">To</label>
+        <br>
+        <input type="date" id="firstDate" onchange = "GetData()">
+        <input type="date" id="secondDate" onchange = "GetData()">
+      </div>
+      <div id="total" class="Section">
+        <h1 class="Section-Head">Total Expenses</h1>
+        <br>
+        <h2 id="Expense"></h2>
+        <script>myFunc()</script>
+      </div>
+    </form>
+    <div id = "pieCanvas" class = "GraphDiv">
+      <canvas id="graph"></canvas>
+    </div>
+    <div id = "barCanvas" class = "GraphDiv">
+      <canvas id="bar"></canvas>
+      <select class="form-select" form="graph" id="Interval" name="Interval" onchange="GetData()">
+        <option selected="selected">Select Interval</option>
+        <option value="Week">Week</option>
+        <option value="Day">Day</option>
+        <option value="Month">Month</option>
+      </select>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>GetData()</script>
+    <div id = "Recents">
+      <h1 id="TransHeader">Recent Transactions</h1>
+      <div id="TransHolder" class = "Section">
+        <h3 id="Trans"></h3>
+      </div>
+      <input type="text" placeholder = "How Many" id = "TransNum">
+      <br>
+      <button id = "SubmitTrans" onclick = "GetData()" class="btn btn-info" >Generate Results</button>
+    </div>
+    <div id = "goals" class = "Section">
+      <h1 id="goalheader" class="Section-Head">Goals</h1>
+      <div>
+      <form action = "/" method = "post" id = "goal">
+        <input type="text" placeholder = "Enter Goal" id = "GoalEnter" name = "Amount">
+        <input type="checkbox" id = "tagexp" name = "tag" value = "goal" class = "tags" checked>
+        <input type = "date" name = "Start" id = "inputGoalStart" class = "goalDate">
+        <input type = "date" name = "End" id = "inputGoalEnd" class = "goalDate">
+        <button  class="btn btn-primary" id = "Goal-button" type="submit">Add Goal</button>
+      </form>
+      </div>
+
+    
+      <p class = goal-date-display id="GoalStart">Start Date: </p>
+      <p class = goal-date-display id="GoalEnd">End Date: </p>
+      <script>
+        document.getElementById('firstDate').addEventListener("change", dateFunc = () =>{
+          document.getElementById("GoalStart").innerHTML = "Start Date: "+document.getElementById('firstDate').value;
+          document.getElementById('inputGoalStart').value = document.getElementById('firstDate').value;
+        })
+        document.getElementById('secondDate').addEventListener("change", dateFunc = () =>{
+          document.getElementById("GoalEnd").innerHTML = "End Date: " + document.getElementById('secondDate').value;
+          document.getElementById('inputGoalEnd').value = document.getElementById('secondDate').value;
+        })
+      </script>
+      <script>GoalCalc()</script>
+
+    </div>
+    <div>
+      <form action = "/" method = "post" id = "remove">
+        <input type="checkbox" id = "tagdelete" name = "tag" value = "remove" class = "tags" checked>
+        <input type = "text" placeholder="Goal ID" id = GoalDelete name = "identity">
+        <button  class="btn btn-primary" id = "Remove-button" type="submit" onclick = 'DeleteValidity()'>Remove Goal</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

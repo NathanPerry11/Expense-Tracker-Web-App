@@ -1,0 +1,276 @@
+.App {
+    text-align: center;
+    background-color: #282c34f0;
+    height: 150vh;
+}
+#Enter{
+    margin-left: auto;
+    margin-top:20 vh;
+    display: inline-block;
+    
+}
+
+.Section{
+    background-color: rgba(245, 245, 245, 0.872);
+    box-shadow: 0.5vw 1vh;
+}
+
+#ValueWindow{
+    position: absolute;
+    margin-top: 5vh;
+    margin-left: 2vw;
+    width: 20%;
+    height: 40%;
+    box-shadow: 0.5vw 1vh dodgerblue;
+}
+
+#total{
+    position: absolute;
+    margin-left: 75vw;
+    margin-top: 5vh;
+    height: 20vh;
+    width: 20vh;
+    box-shadow: 0.5vw 1vh palevioletred;
+}
+
+#dates{
+    position: absolute;
+    margin-left: 53vw;
+    margin-top: 5vh;
+    height: 20vh;
+    width: 20vw;
+    font-size: 1vw;
+    box-shadow: 0.5vw 1vh coral;
+}
+
+#clock{
+    margin-top: 2vh;
+    height: 5vh;
+}
+
+#firstDate{
+    position: absolute;
+    left:3vh;
+    height: 3vh;
+    width: 15vh;
+    bottom: 3vh;
+}
+#secondDate{
+    position: absolute;
+    right: 3vh;
+    height: 3vh;
+    width: 15vh;
+    bottom: 3vh;
+
+}
+#firstLabel{
+    position: absolute;
+    left: 9vh;
+}
+#secondLabel{
+    position: absolute;
+    right: 9vh;
+}
+.Section-Head{
+    margin-top: 2vh;
+    margin-bottom: -1vh;
+    font-size: 1vw;
+}
+
+#Expense{
+    margin-top: 1vh;
+    margin-left: auto;
+    font-size: 2vw;
+}
+
+.ValueWindowComponent{
+    height: 3vh;
+    width: 70%;
+    font-size: 70%;
+}
+#ExpenseType{
+    margin-top: 2vh;
+    background-color: rgba(0, 0, 0, 0.705);
+    color: white;
+    height: 10%;
+    width: 70%;
+    font-size: 75%;
+}
+#Enter{
+    margin-top: 3vh;
+    height: 10%;
+    width: 70%;
+    font-size: 75%;
+}
+
+#pieCanvas{
+    position: absolute;
+    margin-left:0vw;
+    margin-top:55vh;
+    height:60vh;
+    width:50vw;
+    font-size: 0.5vw;
+}
+
+#barCanvas{
+    position: absolute;
+    margin-top:55vh;
+    margin-left:32vw;;
+    height:40vh;
+    width:30vw;
+}
+
+#Recents{
+    position: absolute;
+    height:50vh;
+    width:28vw;
+    margin-left: 63vw;
+    margin-top:40vh;
+}
+
+#TransNum{
+    margin-top:3vh;
+}
+#SubmitTrans{
+    margin-top: 3vh;
+}
+
+#TransHolder{
+    margin-left:auto;
+    margin-right: auto;
+    overflow-y:scroll;
+    width: 40vh;
+    height:30vh;
+    border-radius:10px;
+    box-shadow: 0.5vw 1vh #EFC050;
+}
+
+#Trans{
+    font-size: 1.5vh;
+}
+
+#TransHeader{
+    color:white;
+    font-size: 2vw;
+}
+
+#Interval{
+    margin-top: 3vh;
+    background-color: rgba(0, 0, 0, 0.705);
+    color: white;
+    font-size: 1vw;
+}
+
+#expDateLabel{
+    margin-top: 7%;
+    font-size: 0.8vw;
+}
+
+#goals{
+    position:absolute;
+    margin-top: 5vh;
+    margin-left: 25vw;
+    width: 25vw;
+    height: 40vh;
+    font-size: 0.8vw;
+    box-shadow: 0.5vw 1vh green;
+    overflow-y: scroll;
+}
+#goal{
+    position: absolute;
+    width: 25vw;
+    height: 40vh;
+}
+
+#GoalEnter{
+    margin-top: 3vh;
+    height: 3vh;
+}
+
+#Form{
+    position:relative;
+    margin-top: 0vh;
+}
+
+.RecentTrans{
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 1vh;
+    background-color: white;
+    width: 17vw;
+    height: 3vh;
+    border-radius: 5px;
+}
+.recent-text{
+    font-size:1.8vh;
+}
+
+.knob{
+    height:2.8vh;
+    width: 1vw;
+    margin-top: -1.95vh;
+    margin-left: 15.9vw;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid black;
+}
+
+.progress{
+    width: 20vw;
+    height: 5vh;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.tags{
+    display: none;
+}
+.goalDate{
+    display: none;
+}
+
+#GoalStart{
+    margin-top: 8vh;
+}
+
+.progress-bar{
+    background-color: green;
+}
+
+#Goal-button{
+    width: 20%;
+    height: 10%;
+    font-size: 0.5vw;
+    background-color:forestgreen;
+    border: 1px solid black;
+}
+
+#Toggles{
+    position: absolute;
+    height: 50vh;
+    width: 8vw;
+    margin-top: 5vh;
+    margin-left:90vw;
+    font-size:1.8vh;
+
+}
+
+#toggleHead{
+    font-size:1.8vh
+}
+
+#GoalDelete{
+    height: 3vh;
+    margin-top: 47vh;
+    width: 10%;
+}
+
+#Remove-button{
+    margin-right: 21vw;
+    margin-bottom: 0.5vh;
+    width: 10%;
+    height: 10%;
+    font-size: 0.5vw;
+    background-color:red;
+    border: 1px solid black;
+}
