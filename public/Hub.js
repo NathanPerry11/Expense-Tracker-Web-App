@@ -63,17 +63,19 @@ function GetData(){
                     }
                 }
             }
-            console.log(Master);
             GetRecents(Master);
             barData(Master);
-            var typeValues = [0,0,0,0,0,0,0,0,0,0];
-            for (var i = 0; i < Master.length; i++) {
+            var typeValues = [];
+            for (let i =0;i<types.length;i++){
+                typeValues.push(0);
+            }
+            for (let i = 0; i < Master.length; i++) {
                 var arr = Master[i];
                 var check = DateRange(arr[2]);
                 if (check){
-                    for (let i = 0;i<types.length;i++){
-                        if (arr[1]==types[i]){
-                            typeValues[i]+=(Math.round(Number(arr[0])*100))/100;
+                    for (let j = 0;j<types.length;j++){
+                        if (arr[1]==types[j]){
+                            typeValues[j]+=(Math.round(Number(arr[0])*100))/100;
                         }
                     }
                 }
@@ -121,6 +123,7 @@ async function makePie(value){
 
         if(chart){
             chart.data.datasets[0].data = value;
+            chart.data.labels = types;
             chart.update();
         }else {
             chart = new Chart(ctx, config);
@@ -296,7 +299,6 @@ function GetRecents(array){
     for (let i=0;i<recent.length;i++){
         let index = 0;
         let temp = recent[i];
-        console.log(temp[1]);
         for (let j = 0; j<colors.length;j++){
             if (types[j] == temp[1]){
                     index = j;
