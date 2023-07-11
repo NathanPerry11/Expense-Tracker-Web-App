@@ -14,3 +14,5 @@ This application provides features including adding values, dates, and types of 
 to add goals to this database which have their progress automatically tracked. Expenses can be viewed through graphically
 by type or by date of expense. Additionally recent transactions can be viewed and expenses can be filtered by type as well
 as by date.
+
+![image](https://github.com/NathanPerry11/Expense-Tracker-Web-App/assets/122285185/f78d1ee2-6316-454e-b72e-3edf5a32e93b)
